@@ -8,7 +8,11 @@ const app = express()
 const port = 8000
 
 app.use(express.json())
-app.use(cors())
+app.use(
+    cors({
+        origin: 'https://front-challenge-jade.vercel.app'
+    })
+)
 
 app.use('/books', booksRouter)
 
