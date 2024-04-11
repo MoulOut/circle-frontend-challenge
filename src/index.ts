@@ -10,7 +10,7 @@ const port = 8000
 const allowedOrigins = [
     'http://localhost:8080',
     'https://front-challenge-jade.vercel.app',
-    'https://main--front-bookstore-challenge.netlify.app/',
+    'https://main--front-bookstore-challenge.netlify.app',
 ]
 
 app.use(express.json())
