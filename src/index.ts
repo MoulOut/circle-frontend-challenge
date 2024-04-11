@@ -7,18 +7,24 @@ import cors from 'cors'
 const app = express()
 const port = 8000
 
-const allowedOrigins = ['http://localhost:8080', 'https://front-challenge-jade.vercel.app'];
+const allowedOrigins = [
+    'http://localhost:8080',
+    'https://front-challenge-jade.vercel.app',
+    'https://main--front-bookstore-challenge.netlify.app/',
+]
 
 app.use(express.json())
-app.use(cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    }
-  }));
+app.use(
+    cors({
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true)
+            } else {
+                callback(new Error('Not allowed by CORS'))
+            }
+        },
+    })
+)
 
 app.use('/books', booksRouter)
 
